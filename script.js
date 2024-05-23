@@ -1,5 +1,11 @@
 var select;
 var chat;
+if(localStorage.getItem("user") == null) {
+  localStorage.setItem("user", prompt("Username?"))
+  document.getElementById("user").value = localStorage.getItem("user");
+} else {
+  document.getElementById("user").value = localStorage.getItem("user");
+}
 function addChat(user, text) {
   document.getElementById("chatbody").innerHTML += `<div>${user}:</div><div>${text}</div><br>`
 }
