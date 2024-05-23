@@ -1,10 +1,7 @@
 var select;
 var chat;
 if(localStorage.getItem("user") == null) {
-  localStorage.setItem("user", prompt("Username?"))
-  document.getElementById("user").value = localStorage.getItem("user");
-} else {
-  document.getElementById("user").value = localStorage.getItem("user");
+  localStorage.setItem("user", prompt("Username?"));
 }
 function addChat(user, text) {
   document.getElementById("chatbody").innerHTML += `<div>${user}:</div><div>${text}</div><br>`
@@ -23,7 +20,7 @@ load();
 async function submit() {
   select = document.getElementById("chat");
   chat = select.value;
-  let user = document.getElementById("user").value;
+  let user = localStorage.getItem("user");
   let message = document.getElementById("text").value;
   if(user == "delete4576") {
     $.ajax({
